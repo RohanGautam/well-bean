@@ -2,13 +2,14 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const { exec } = require("child_process");
+const { v4: uuidv4 } = require('uuid');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, "./uploads/")
     },
     filename: function (req, file, cb) {
-        cb(null, new Date().toISOString() + file.originalname);
+        cb(null, uuidv4() + file.originalname);
     }
 })
 const upload = multer({ storage: storage });
@@ -39,8 +40,23 @@ router.get("/latest", (req, res) => {
 // @desc  Post a video and add progress to DB
 router.post("/", upload.single("video"), (req, res) => {
     const webmPath = req.file.path;
-    const mp4Path = webmPath.replace("webm", "mp4")
-    exec(`ffmpeg -i ${webmPath} ${mp4Path}`);
+    const mp4Path = webmPath.replace(".webm", "X.mp4")
+
+    exec(`ffmpeg -i ${webmPath} ${mp4Path}`, (error, stdout, stderr) => {
+        let python_parent = "/Users/laksh/Desktop/Projects/well-bean/server"
+        const pp_command = `${python_parent}/emotion-recognition/emotions.py`
+        const src = `${python_parent}/${mp4Path}`;
+        const dest = `${python_parent}/${mp4Path.replace("X", "")}`;
+        exec(`python3  ${pp_command} ${src} ${dest}`, (error, stdout, stderr) => {
+            if (error) {
+                console.error(`exec error: ${error}`);
+                return;
+            }
+            console.log(`stdout: ${stdout}`);
+            console.log(`stderr: ${stderr}`);
+        });
+    });
+
     const newProgress = new Progress({
         video_path: mp4Path
     });

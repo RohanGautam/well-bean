@@ -52,3 +52,6 @@ npm install
 ```
 REACT_APP_GARDEN_URL=<INSERT AR URL>
 ```
+
+## Credits
+1. [Emotion recognition model](https://github.com/vjgpt/Face-and-Emotion-Recognition)

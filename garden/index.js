@@ -38,20 +38,45 @@ const scaleMap = {
   3: "0.3 0.3 0.3",
 };
 
-let tile_nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-// let growth_nums = tile_nums.map((_) => Math.floor(Math.random() * 3) + 1);
-let growth_nums = [3, 1, 1, 1, 1, 1, 1, 1, 1];
+let currentTileGrowthMap = {
+  1: 1,
+  2: 1,
+  3: 1,
+  4: 1,
+  5: 1,
+  6: 1,
+  7: 1,
+  8: 1,
+  9: 1,
+};
+let newTileGrowthMap = {
+  1: 1,
+  2: 1,
+  3: 1,
+  4: 1,
+  5: 3,
+  6: 1,
+  7: 1,
+  8: 1,
+  9: 1,
+};
 
-const zip = (a, b) => a.map((k, i) => [k, b[i]]);
+// let tile_nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// // let growth_nums = tile_nums.map((_) => Math.floor(Math.random() * 3) + 1);
+// let growth_nums = [3, 1, 1, 1, 1, 1, 1, 1, 1];
 
-zip(tile_nums, growth_nums).map((ele) => {
-  let tile_num = ele[0];
-  let growth_num = ele[1];
+// let new_tile_nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// let new_growth_nums = [3, 1, 3, 1, 1, 1, 1, 1, 1];
+
+// const zip = (a, b) => a.map((k, i) => [k, b[i]]);
+
+for (tile_num in currentTileGrowthMap) {
+  let growth_num = currentTileGrowthMap[tile_num];
   let tree = document.getElementById(plantModelMap[tile_num]);
   tree.setAttribute("scale", scaleMap[growth_num]);
   tree.setAttribute("position", treePositionMap[tile_num]);
   tree.setAttribute("obj-model", growthMap[growth_num]);
-});
+}
 
 // fetch an inspiring quote
 fetch("https://quotes.rest/qod?category=inspire&language=en").then((result) => {
@@ -63,4 +88,34 @@ fetch("https://quotes.rest/qod?category=inspire&language=en").then((result) => {
     document.getElementById("author").innerText = `- ${author}`;
     console.log(quote, author);
   });
+});
+
+let firstTime = true;
+const fallTime = 1000;
+const riseTime = 1000;
+// listen for marker found events:
+document.getElementById("marker").addEventListener("markerFound", (e) => {
+  console.log("Found the marker!");
+  if (firstTime) {
+    console.log("First time !");
+    for (tile_num in currentTileGrowthMap) {
+      let curr_g = currentTileGrowthMap[tile_num];
+      let new_g = newTileGrowthMap[tile_num];
+      if (curr_g != new_g) {
+        let tree = document.getElementById(plantModelMap[tile_num]);
+        tree.setAttribute(
+          "animation",
+          `property: scale; to: 0 0 0; dur: ${fallTime}; easing: linear`
+        );
+        setTimeout((_) => {
+          tree.setAttribute("obj-model", growthMap[new_g]);
+          tree.setAttribute(
+            "animation",
+            `property: scale; to: ${scaleMap[new_g]}; dur: ${riseTime}; easing: linear`
+          );
+          firstTime = false;
+        }, fallTime);
+      }
+    }
+  }
 });

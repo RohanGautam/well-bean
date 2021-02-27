@@ -7,6 +7,8 @@ import {
     faSeedling
 } from '@fortawesome/free-solid-svg-icons'
 
+import Chat from "../Chat"
+
 import "./styles.css"
 
 class Home extends Component {
@@ -57,7 +59,7 @@ class Home extends Component {
             case 1:
                 return <h1>{tab}</h1>
             case 2:
-                return <h1>{tab}</h1>
+                return <Chat />
             case 3:
                 return <h1>{tab}</h1>
             default:

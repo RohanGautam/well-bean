@@ -54,6 +54,12 @@ if (USE_WEBCAM == True):
 else:
     cap = cv2.VideoCapture(SRC) # Video file source
 
+moods = {
+  "happy": 0,
+  "sad": 0,
+  "neutral": 0,
+}
+
 for i in range(length): # True:
     ret, bgr_image = cap.read()
 
@@ -96,12 +102,15 @@ for i in range(length): # True:
             color = emotion_probability * np.asarray((255, 0, 0))
         elif emotion_text == 'sad':
             color = emotion_probability * np.asarray((0, 0, 255))
+            moods["sad"] = moods["sad"]+1
         elif emotion_text == 'happy':
             color = emotion_probability * np.asarray((255, 255, 0))
+            moods["happy"] = moods["happy"]+1
         elif emotion_text == 'surprise':
             color = emotion_probability * np.asarray((0, 255, 255))
         else:
             color = emotion_probability * np.asarray((0, 255, 0))
+            moods["neutral"] = moods["neutral"]+1
 
         color = color.astype(int)
         color = color.tolist()
@@ -120,3 +129,4 @@ for i in range(length): # True:
 cap.release()
 out.release()
 cv2.destroyAllWindows()
+print(f"{moods['happy']} {moods['sad']} {moods['neutral']}")

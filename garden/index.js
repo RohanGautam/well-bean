@@ -30,20 +30,9 @@ const growthMap = {
   2: MED_TREE_MODEL,
   3: BIG_TREE_MODEL,
 };
-// const tileIdMap = {
-//   1: "tile-1",
-//   2: "tile-2",
-//   3: "tile-3",
-//   4: "tile-4",
-//   5: "tile-5",
-//   6: "tile-6",
-//   7: "tile-7",
-//   8: "tile-8",
-//   9: "tile-9",
-// };
 
-let tile_num = 8;
-let growth_num = 3;
+let tile_num = 1;
+let growth_num = 2;
 let tree = document.getElementById(plantModelMap[tile_num]);
 tree.setAttribute("scale", "0.5 0.5 0.5");
 tree.setAttribute("position", treePositionMap[tile_num]);

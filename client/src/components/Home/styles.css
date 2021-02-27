@@ -1,0 +1,29 @@
+.tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: white;
+  height: 4em;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.tab {
+    font-weight: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.active-tab {
+    color:#00993b;
+}
+
+.body {
+    background-color: whitesmoke;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}

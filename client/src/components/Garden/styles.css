@@ -1,0 +1,29 @@
+.garden {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    height: 80%;
+    width: 90%;
+    border-radius: 2em;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    margin: 0 auto;
+    margin-top: 2em;
+}
+
+a, a:visited, a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.garden-icon {
+    width: 80%;
+}
+
+.garden-btn {
+    margin-top: auto;
+    margin-bottom: 3em;
+    width: 80%;
+    font-size: 2.2em;
+}

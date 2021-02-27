@@ -42,8 +42,13 @@ npm install
 
 ### Client
 
-Download necessary libraries using:
+1. Download necessary libraries using:
 ```
 cd client
 npm install
+```
+
+2. Make a `/client/env` file of the format:
+```
+REACT_APP_GARDEN_URL=<INSERT AR URL>
 ```

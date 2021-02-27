@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import "./styles.css"
+
 class Chat extends Component {
 
     render() {

@@ -15,40 +15,17 @@ class App extends Component {
     return (
       <Router>
         <div>
-          {/* <nav>
-            <ul>
-              <li>
-                <Link to="/">Login</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/users">Users</Link>
-              </li>
-            </ul>
-          </nav> */}
-
-          {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
           <Switch>
-            <Route path="/home">
+            <Route exact path="/home">
               <Home />
             </Route>
-            <Route path="/users">
-              <Users />
-            </Route>
-            <Route path="/">
+            <Route exact path="/">
               <Login />
             </Route>
           </Switch>
         </div>
       </Router>
     );
-
-    function Users() {
-      return <h2>Users</h2>;
-    }
   }
 }
 

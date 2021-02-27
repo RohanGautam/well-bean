@@ -8,6 +8,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 import Chat from "../Chat"
+import Garden from "../Garden"
 
 import "./styles.css"
 
@@ -61,7 +62,7 @@ class Home extends Component {
             case 2:
                 return <Chat />
             case 3:
-                return <h1>{tab}</h1>
+                return <Garden />
             default:
                 return <h1>Error</h1>
         }

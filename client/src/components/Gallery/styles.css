@@ -1,0 +1,47 @@
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    height: 80%;
+    width: 90%;
+    border-radius: 2em;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    margin: 0 auto;
+    margin-top: 2em;
+    padding: 1em 0 1em 0;
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 3em;
+    width: 80%;
+    border-radius: 0.6em;
+    border: 1px solid grey;
+    margin-top: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.gallery-item > h4 {
+    margin: 0;
+}
+
+.gallery-item > h4 > span{
+    border-radius: 0.4em;
+    font-weight: 200;
+}
+
+.gallery-video {
+    width: 90%;
+}
+
+.gallery-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

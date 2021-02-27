@@ -10,6 +10,7 @@ const app = express();
 // Middleware
 app.use(bodyParser.json());
 app.use(cors());
+app.use("/uploads", express.static("uploads"));
 
 // DB Config
 const db = require("./keys").mongoURI;

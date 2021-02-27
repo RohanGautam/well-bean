@@ -25,17 +25,31 @@ class Journal extends Component {
         super(props);
         this.state = {
             video: null,
-            success: false
+            success: false,
+            time: 0,
         }
     }
 
+    componentDidMount() {
+        axios.get("/api/progress/latest")
+            .then(res => {
+                var time = 0;
+                if (res.data) {
+                    const uploadDate = new Date(res.data.date);
+                    const currDate = new Date();
+                    time = Math.round(Math.abs(currDate - uploadDate) / 36e5);
+                }
+                this.setState({ time })
+            })
+    }
+
     render() {
-        const { success, video } = this.state;
+        const { success, time, video } = this.state;
 
         return (
             <div className="journal">
                 <div className="journal-reminder">
-                    <h5><span>5 hours</span> since your last check-in</h5>
+                    <h5><span>{time} hours</span> since your last check-in</h5>
                     <p>Remember to check-in often to <br /> track your progress!</p>
                     <img
                         src={image}

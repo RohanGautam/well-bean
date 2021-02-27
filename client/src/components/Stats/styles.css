@@ -1,0 +1,14 @@
+.line-graph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: white;
+  height: 40%;
+  width: 90%;
+  padding: 0px 10px 0px 10px;
+  border-radius: 2em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  margin-top: 2em;
+}

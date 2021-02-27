@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const ProgressSchema = new Schema({
-    path: {
+    video_path: {
         type: String,
         required: true
     },

@@ -1,21 +1,36 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
+import { Transition } from 'react-transition-group';
+import { Alert, Button } from 'react-bootstrap';
 import VideoRecorder from 'react-video-recorder'
 import axios from "axios";
 
 import "./styles.css"
 import image from "../../assets/plant.png"
 
+const duration = 300;
+
+const defaultStyle = {
+    transition: `opacity ${duration}ms ease-in-out`,
+    opacity: 0,
+}
+
+const transitionStyles = {
+    entering: { opacity: 1 },
+    entered: { opacity: 1 },
+    exiting: { opacity: 0 },
+    exited: { opacity: 0 },
+};
 class Journal extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            video: null
+            video: null,
+            success: false
         }
     }
 
     render() {
-        const { video } = this.state;
+        const { success, video } = this.state;
 
         return (
             <div className="journal">
@@ -46,8 +61,39 @@ class Journal extends Component {
                         Submit
                     </Button>
                 }
+                {
+                    this.renderSuggestion(success)
+                }
             </div>
         )
+    }
+
+    renderSuggestion = (inProp) => {
+        if (inProp === true) {
+            setInterval(() => {
+                this.setState({ success: false })
+            }, 2000);
+        }
+        if (inProp === true) {
+            return (
+                <Transition in={inProp} timeout={500}>
+                    {state => (
+                        <div
+                            className="journal-alert"
+                            style={{
+                                ...defaultStyle,
+                                ...transitionStyles[state]
+                            }}>
+                            <Alert variant="success">
+                                Great work!
+                        </Alert>
+                        </div>
+                    )}
+                </Transition>
+            );
+        } else {
+            return "";
+        }
     }
 
     submitVideo = () => {
@@ -56,7 +102,9 @@ class Journal extends Component {
         const fd = new FormData();
         fd.append("video", video, "video.webm");
         axios.post("/api/progress", fd)
-            .then(res => console.log(res))
+            .then(res => {
+                this.setState({ success: true })
+            })
     }
 }
 

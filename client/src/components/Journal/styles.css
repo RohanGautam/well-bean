@@ -54,3 +54,9 @@
     margin-top: 1em;
     width: 80%;
 }
+
+.journal-alert {
+    position: absolute;
+    margin: 0 auto;
+    bottom: 2em;
+}

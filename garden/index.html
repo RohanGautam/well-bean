@@ -5,13 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Arjs-test</title>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="index.js"></script>
+
+    <!-- Ar-js and A-frame dependencies -->
+    <!-- <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script> -->
+    <!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script> -->
   </head>
   <body style="margin: 0px; overflow: hidden">
-    <a-scene embedded arjs>
-      <a-marker preset="hiro">
+    <div id="markerContents"></div>
+    <!-- <a-scene embedded arjs>
+      <a-marker preset="hiro" id="markerContents">
         <a-entity
           position="0 0 0"
           scale="0.09 0.09 0.09"
@@ -57,19 +59,19 @@
           scale="0.09 0.09 0.09"
           gltf-model="url(assets/rounded-corner-green.gltf)"
         ></a-entity>
-        <!-- <a-entity
-          position="-10 0 -1"
-          scale="1 1 1"
-          gltf-model="url(assets/rounded-corner-green.gltf)"
-        > -->
-        <!-- <a-entity
-          position="1 0 0"
-          scale="0.05 0.05 0.05"
-          gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
-        >
-        </a-entity> -->
       </a-marker>
       <a-entity camera></a-entity>
-    </a-scene>
+    </a-scene> -->
+
+    <!-- React dependencies -->
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="index.js"></script>
   </body>
 </html>

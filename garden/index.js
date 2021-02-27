@@ -20,6 +20,16 @@ const plantModelMap = {
   8: "plant-model-8",
   9: "plant-model-9",
 };
+
+const SMALL_TREE_MODEL = "obj: #small-tree-obj; mtl: #small-tree-mtl";
+const MED_TREE_MODEL = "obj: #medium-tree-obj; mtl: #medium-tree-mtl";
+const BIG_TREE_MODEL = "obj: #big-tree-obj; mtl: #big-tree-mtl";
+
+const growthMap = {
+  1: SMALL_TREE_MODEL,
+  2: MED_TREE_MODEL,
+  3: BIG_TREE_MODEL,
+};
 // const tileIdMap = {
 //   1: "tile-1",
 //   2: "tile-2",
@@ -32,12 +42,9 @@ const plantModelMap = {
 //   9: "tile-9",
 // };
 
-const SMALL_TREE_MODEL = "obj: #small-tree-obj; mtl: #small-tree-mtl";
-const MED_TREE_MODEL = "obj: #medium-tree-obj; mtl: #medium-tree-mtl";
-
 let tile_num = 8;
-let growth_num = 2;
+let growth_num = 3;
 let tree = document.getElementById(plantModelMap[tile_num]);
 tree.setAttribute("scale", "0.5 0.5 0.5");
 tree.setAttribute("position", treePositionMap[tile_num]);
-tree.setAttribute("obj-model", MED_TREE_MODEL);
+tree.setAttribute("obj-model", growthMap[growth_num]);

@@ -1,4 +1,5 @@
 // 0.2 in the middle of the coordinates is the z axis that makes the models
+
 // be slightly raised
 const treePositionMap = {
   1: "-1 0.2 -1",
@@ -28,26 +29,28 @@ const MED_TREE_MODEL = "obj: #medium-tree-obj; mtl: #medium-tree-mtl";
 const BIG_TREE_MODEL = "obj: #big-tree-obj; mtl: #big-tree-mtl";
 
 const growthMap = {
+  0: SMALL_TREE_MODEL,
   1: SMALL_TREE_MODEL,
   2: MED_TREE_MODEL,
   3: BIG_TREE_MODEL,
 };
 const scaleMap = {
+  0: "0 0 0",
   1: "0.3 0.3 0.3",
   2: "0.3 0.3 0.3",
   3: "0.3 0.3 0.3",
 };
 
 let currentTileGrowthMap = {
-  1: 1,
-  2: 1,
-  3: 1,
-  4: 1,
-  5: 1,
-  6: 1,
-  7: 1,
-  8: 1,
-  9: 1,
+  1: 0,
+  2: 0,
+  3: 0,
+  4: 0,
+  5: 0,
+  6: 0,
+  7: 0,
+  8: 0,
+  9: 0,
 };
 let newTileGrowthMap = {
   1: 1,
@@ -81,7 +84,6 @@ for (tile_num in currentTileGrowthMap) {
 // fetch an inspiring quote
 fetch("https://quotes.rest/qod?category=inspire&language=en").then((result) => {
   result.json().then((response) => {
-    console.log("response is", response);
     let quote = response["contents"]["quotes"][0]["quote"];
     let author = response["contents"]["quotes"][0]["author"];
     document.getElementById("quote").innerText = quote;
@@ -119,3 +121,24 @@ document.getElementById("marker").addEventListener("markerFound", (e) => {
     }
   }
 });
+
+//random growth
+let randint = (stat, end) => Math.floor(Math.random() * end) + start;
+fetch("https://6cbbe2ecbbe0.ngrok.io/api/progress").then((res) => {
+  res.json().then((result) => {
+    console.log(result);
+    // let dates = result.map(entry=>entry["date"])
+    // result.map((entry) => {
+    //   let tile_num = randint(1, 9);
+    //   let curr = getCurrentTileGrowthMap();
+    //   while (curr[tile_num]>=3){
+    //     tile_num = randint(1,9)
+    //   }
+    //tile-num can now definitely be added to.
+
+    // });
+  });
+});
+
+function getCurrentTileGrowthMap() {}
+function setCurrentTileGrowthMap() {}

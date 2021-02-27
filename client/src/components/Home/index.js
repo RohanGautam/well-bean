@@ -3,11 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faBook,
     faChartBar,
-    faSeedling
+    faSeedling,
+    faImages
 } from '@fortawesome/free-solid-svg-icons'
 
 import Garden from "../Garden"
+import Gallery from "../Gallery"
 import Journal from "../Journal"
+import Stats from "../Stats"
 
 import "./styles.css"
 
@@ -49,10 +52,15 @@ class Home extends Component {
                         () => { this.setState({ tab: 1 }) },
                         tab === 1
                     )}
-                    {this.renderTab("Garden",
-                        <FontAwesomeIcon icon={faSeedling} />,
+                    {this.renderTab("Gallery",
+                        <FontAwesomeIcon icon={faImages} />,
                         () => { this.setState({ tab: 2 }) },
                         tab === 2
+                    )}
+                    {this.renderTab("Garden",
+                        <FontAwesomeIcon icon={faSeedling} />,
+                        () => { this.setState({ tab: 3 }) },
+                        tab === 3
                     )}
                 </div>
             </div>
@@ -64,8 +72,10 @@ class Home extends Component {
             case 0:
                 return <Journal />
             case 1:
-                return <h1>{tab}</h1>
+                return <Stats />
             case 2:
+                return <Gallery />
+            case 3:
                 return <Garden />
             default:
                 return <h1>Error</h1>

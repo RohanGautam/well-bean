@@ -24,6 +24,17 @@ router.get("/", (req, res) => {
         .then(progress => res.json(progress))
 })
 
+// @route GET api/progress/latest
+// @desc Get the latest check-in
+router.get("/latest", (req, res) => {
+    Progress.find()
+        .limit(1)
+        .sort({ date: -1 })
+        .then(progress => {
+            res.json(progress[0])
+        })
+})
+
 // @route POST api/progress
 // @desc  Post a video and add progress to DB
 router.post("/", upload.single("video"), (req, res) => {

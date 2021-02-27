@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
-import {
-    Link
-} from "react-router-dom";
 
 import "./styles.css"
 import image from "../../assets/garden.png"

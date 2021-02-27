@@ -7,6 +7,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 import Garden from "../Garden"
+import Journal from "../Journal"
 
 import "./styles.css"
 
@@ -19,15 +20,15 @@ class Home extends Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         (function (d, m) {
             var kommunicateSettings =
-              { "appId": "2b2f5a27ef9ed5fdc037638ae14857d6c", "popupWidget": true, "automaticChatOpenOnNavigation": true };
-               var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+                { "appId": "2b2f5a27ef9ed5fdc037638ae14857d6c", "popupWidget": true, "automaticChatOpenOnNavigation": true };
+            var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
             s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
             var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
             window.kommunicate = m; m._globals = kommunicateSettings;
-          })(document, window.kommunicate || {});
+        })(document, window.kommunicate || {});
     }
 
     render() {
@@ -61,7 +62,7 @@ class Home extends Component {
     renderPage = (tab) => {
         switch (tab) {
             case 0:
-                return <h1>{tab}</h1>
+                return <Journal />
             case 1:
                 return <h1>{tab}</h1>
             case 2:

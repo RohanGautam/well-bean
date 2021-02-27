@@ -1,13 +1,15 @@
+// 0.2 in the middle of the coordinates is the z axis that makes the models
+// be slightly raised
 const treePositionMap = {
-  1: "-1 0 -1",
-  2: "0 0 -1",
-  3: "1 0 -1",
-  4: "-1 0 0",
-  5: "0 0 0",
-  6: "1 0 0",
-  7: "-1 0 1",
-  8: "0 0 1",
-  9: "1 0 1",
+  1: "-1 0.2 -1",
+  2: "0 0.2 -1",
+  3: "1 0.2 -1",
+  4: "-1 0.2 0",
+  5: "0 0.2 0",
+  6: "1 0.2 0",
+  7: "-1 0.2 1",
+  8: "0 0.2 1",
+  9: "1 0.2 1",
 };
 const plantModelMap = {
   1: "plant-model-1",
@@ -31,9 +33,19 @@ const growthMap = {
   3: BIG_TREE_MODEL,
 };
 
-let tile_num = 1;
-let growth_num = 2;
-let tree = document.getElementById(plantModelMap[tile_num]);
-tree.setAttribute("scale", "0.5 0.5 0.5");
-tree.setAttribute("position", treePositionMap[tile_num]);
-tree.setAttribute("obj-model", growthMap[growth_num]);
+// let tile_num = 1;
+// let growth_num = 2;
+
+let tile_nums = [1, 3, 8];
+let growth_nums = [1, 2, 3];
+
+const zip = (a, b) => a.map((k, i) => [k, b[i]]);
+
+zip(tile_nums, growth_nums).map((ele) => {
+  let tile_num = ele[0];
+  let growth_num = ele[1];
+  let tree = document.getElementById(plantModelMap[tile_num]);
+  tree.setAttribute("scale", "0.5 0.5 0.5");
+  tree.setAttribute("position", treePositionMap[tile_num]);
+  tree.setAttribute("obj-model", growthMap[growth_num]);
+});

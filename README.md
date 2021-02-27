@@ -2,9 +2,27 @@
 
 We care about everyone's well-bean
 
-## Server
+## Web
 
-### Setup
+Running the client:
+```
+cd server
+npm run client
+```
+
+Running the server:
+```
+cd server
+npm run server
+```
+
+Running both:
+```
+cd server
+npm run dev
+```
+
+### Server
 
 1. Create a database using [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 2. Obtain your Mongo URI using the __Connect__ > __Connect your application__ option
@@ -16,8 +34,16 @@ module.exports = {
 }
 ```
 
-4. Download necessary libraries using `npm install`
+4. Download necessary libraries using:
+```
+cd server
+npm install
+```
 
-### Running the server
+### Client
 
-`npm run server`
+Download necessary libraries using:
+```
+cd client
+npm install
+```

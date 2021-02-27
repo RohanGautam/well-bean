@@ -3,10 +3,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.css';
 
 import Login from "./components/Login"
+import Home from "./components/Home"
 import './App.css';
 
 class App extends Component {
@@ -31,8 +32,8 @@ class App extends Component {
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
-            <Route path="/about">
-              <About />
+            <Route path="/home">
+              <Home />
             </Route>
             <Route path="/users">
               <Users />
@@ -44,10 +45,6 @@ class App extends Component {
         </div>
       </Router>
     );
-
-    function About() {
-      return <h2>About</h2>;
-    }
 
     function Users() {
       return <h2>Users</h2>;

@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { Button, Form } from 'react-bootstrap';
+import {
+    withRouter
+} from "react-router-dom";
 
 import "./styles.css"
 import image from "../../assets/login.png"
@@ -13,11 +16,11 @@ class Login extends Component {
                         src={image}
                         className="login-card-icon"
                     />
-                    <h1>
+                    <h1 className="login-header">
                         <span className="green-text">Grow </span>
                         with us,
                     </h1>
-                    <h1>
+                    <h1 className="login-header">
                         Or
                         <span className="green-text"> else...</span>
                     </h1>
@@ -33,6 +36,9 @@ class Login extends Component {
                         className="login-btn"
                         size="lg"
                         variant="success"
+                        onClick={() => {
+                            this.props.history.push("/home")
+                        }}
                     > Log In</Button>
                 </div>
             </div>
@@ -40,4 +46,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);

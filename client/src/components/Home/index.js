@@ -3,11 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faBook,
     faChartBar,
-    faComment,
     faSeedling
 } from '@fortawesome/free-solid-svg-icons'
 
-import Chat from "../Chat"
 import Garden from "../Garden"
 
 import "./styles.css"
@@ -20,6 +18,18 @@ class Home extends Component {
             tab: 0,
         }
     }
+
+    componentDidMount(){
+        (function (d, m) {
+            var kommunicateSettings =
+              { "appId": "2b2f5a27ef9ed5fdc037638ae14857d6c", "popupWidget": true, "automaticChatOpenOnNavigation": true };
+               var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+            s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+            var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+            window.kommunicate = m; m._globals = kommunicateSettings;
+          })(document, window.kommunicate || {});
+    }
+
     render() {
         const { tab } = this.state;
         return (
@@ -38,15 +48,10 @@ class Home extends Component {
                         () => { this.setState({ tab: 1 }) },
                         tab === 1
                     )}
-                    {this.renderTab("Chat",
-                        <FontAwesomeIcon icon={faComment} />,
-                        () => { this.setState({ tab: 2 }) },
-                        tab === 2
-                    )}
                     {this.renderTab("Garden",
                         <FontAwesomeIcon icon={faSeedling} />,
-                        () => { this.setState({ tab: 3 }) },
-                        tab === 3
+                        () => { this.setState({ tab: 2 }) },
+                        tab === 2
                     )}
                 </div>
             </div>
@@ -60,8 +65,6 @@ class Home extends Component {
             case 1:
                 return <h1>{tab}</h1>
             case 2:
-                return <Chat />
-            case 3:
                 return <Garden />
             default:
                 return <h1>Error</h1>

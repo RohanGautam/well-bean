@@ -158,7 +158,7 @@ let randint = (start, end) => Math.floor(Math.random() * end) + start;
 fetch("http://localhost:5000/api/progress").then((res) => {
   res.json().then((result) => {
     console.log(result);
-    clearLocalStorage();
+    // clearLocalStorage();
     let current_map = getCurrentTileGrowthMap();
     if (!current_map) {
       current_map = defaultTileGrowthMap;

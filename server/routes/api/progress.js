@@ -25,6 +25,15 @@ router.get("/", (req, res) => {
     .then((progress) => res.json(progress));
 });
 
+// @route GET api/progress/graph
+// @desc Get past 20 items sorted by date
+router.get("/graph", (req, res) => {
+  Progress.find()
+    .limit(20)
+    .sort({ date: 1 })
+    .then((progress) => res.json(progress));
+});
+
 // @route GET api/progress/latest
 // @desc Get the latest check-in
 router.get("/latest", (req, res) => {
@@ -42,6 +51,8 @@ router.post("/", upload.single("video"), (req, res) => {
   const webmPath = req.file.path;
   const mp4Path = webmPath.replace(".webm", "X.mp4")
 
+  var happy = 0, sad = 0, neutral = 0;
+
   exec(`ffmpeg -i ${webmPath} ${mp4Path}`, (error, stdout, stderr) => {
     let python_parent = "/Users/laksh/Desktop/Projects/well-bean/server"
     const pp_command = `${python_parent}/emotion-recognition/emotions.py`
@@ -54,15 +65,24 @@ router.post("/", upload.single("video"), (req, res) => {
       }
       console.log(`stdout: ${stdout}`);
       console.log(`stderr: ${stderr}`);
+
+      const results = stdout.split(" ")
+      happy = results[0];
+      sad = results[1];
+      neutral = results[2];
+
+      const newProgress = new Progress({
+        video_path: mp4Path,
+        happy: happy,
+        sad: sad,
+        neutral: neutral,
+      });
+      newProgress.save().then(progress => {
+        res.json(progress);
+      })
     });
   });
 
-  const newProgress = new Progress({
-    video_path: mp4Path
-  });
-  newProgress.save().then(progress => {
-    res.json(progress);
-  })
 });
 
 module.exports = router;

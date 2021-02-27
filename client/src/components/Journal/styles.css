@@ -39,7 +39,7 @@
 }
 
 .journal-recorder {
-    height: 65%;
+    height: 55%;
     width: 80%;
     margin-top: 2em;
     border-radius: 1em;
@@ -48,4 +48,9 @@
 
 .journal-recorder > div{
     border-radius: 1em;
+}
+
+.journal-btn {
+    margin-top: 1em;
+    width: 80%;
 }

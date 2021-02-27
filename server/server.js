@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
+const progress = require("./routes/api/progress")
+
 const app = express();
 
 // Middleware
@@ -16,6 +18,9 @@ mongoose
     .then(() => {
         console.log("MongoDB Connected...");
     }).catch(err => console.log(err));
+
+// Use routes
+app.use("/api/progress", progress)
 
 const port = process.env.PORT || 5000;
 

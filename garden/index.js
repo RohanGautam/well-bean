@@ -32,12 +32,14 @@ const growthMap = {
   2: MED_TREE_MODEL,
   3: BIG_TREE_MODEL,
 };
+const scaleMap = {
+  1: "0.3 0.3 0.3",
+  2: "0.3 0.3 0.3",
+  3: "0.3 0.3 0.3",
+};
 
-// let tile_num = 1;
-// let growth_num = 2;
-
-let tile_nums = [1, 3, 8];
-let growth_nums = [1, 2, 3];
+let tile_nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let growth_nums = tile_nums.map((_) => Math.floor(Math.random() * 3) + 1);
 
 const zip = (a, b) => a.map((k, i) => [k, b[i]]);
 
@@ -45,7 +47,7 @@ zip(tile_nums, growth_nums).map((ele) => {
   let tile_num = ele[0];
   let growth_num = ele[1];
   let tree = document.getElementById(plantModelMap[tile_num]);
-  tree.setAttribute("scale", "0.5 0.5 0.5");
+  tree.setAttribute("scale", scaleMap[growth_num]);
   tree.setAttribute("position", treePositionMap[tile_num]);
   tree.setAttribute("obj-model", growthMap[growth_num]);
 });

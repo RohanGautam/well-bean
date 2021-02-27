@@ -1,0 +1,51 @@
+.journal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+.journal-reminder {
+    background-color: #f7e597;
+    border-radius: 1em;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2em;
+    padding: 1em 1em 0em 1em;
+}
+
+.journal-reminder > h5 {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.journal-reminder > h5 > span {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.journal-reminder > p {
+    font-weight: 300;
+}
+
+.journal-reminder-img {
+    position: absolute;
+    width: 30vw;
+    right: 0;
+}
+
+.journal-recorder {
+    height: 65%;
+    width: 80%;
+    margin-top: 2em;
+    border-radius: 1em;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.journal-recorder > div{
+    border-radius: 1em;
+}

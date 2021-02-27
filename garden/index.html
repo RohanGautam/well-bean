@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arjs-test</title>
+
+    <!-- Ar-js and A-frame dependencies -->
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+  <body id="body" style="margin: 0px; overflow: hidden">
+    <a-scene embedded arjs>
+      <a-assets>
+        <a-asset-item
+          id="small-tree-obj"
+          src="assets/small-tree.obj"
+        ></a-asset-item>
+        <a-asset-item
+          id="small-tree-mtl"
+          src="assets/small-tree.mtl"
+        ></a-asset-item>
+        <a-asset-item
+          id="medium-tree-obj"
+          src="assets/medium-tree.obj"
+        ></a-asset-item>
+        <a-asset-item
+          id="medium-tree-mtl"
+          src="assets/medium-tree.mtl"
+        ></a-asset-item>
+        <a-asset-item
+          id="big-tree-obj"
+          src="assets/big-tree.obj"
+        ></a-asset-item>
+        <a-asset-item
+          id="big-tree-mtl"
+          src="assets/big-tree.mtl"
+        ></a-asset-item>
+      </a-assets>
+      <a-marker preset="hiro" id="markerContents">
+        <!-- the tree models whose attributes we programatically control -->
+        <a-entity
+          position="1 0.2 1"
+          scale="0 0 0"
+          id="plant-model-1"
+          obj-model="obj: #small-tree-obj; mtl: #small-tree-mtl"
+        ></a-entity>
+        <a-entity
+          position="1 0.2 1"
+          scale="0 0 0"
+          id="plant-model-2"
+          obj-model="obj: #small-tree-obj; mtl: #small-tree-mtl"
+        ></a-entity>
+        <a-entity
+          position="1 0.2 1"
+          scale="0 0 0"
+          id="plant-model-3"
+          obj-model="obj: #small-tree-obj; mtl: #small-tree-mtl"
+        ></a-entity>
+        <a-entity
+          position="1 0.2 1"
+          scale="0 0 0"
+          id="plant-model-4"
+          obj-model="obj: #small-tree-obj; mtl: #small-tree-mtl"
+        ></a-entity>
+        <a-entity
+          position="1 0.2 1"
+          scale="0 0 0"
+          id="plant-model-5"
+          obj-model="obj: #small-tree-obj; mtl: #small-tree-mtl"
+        ></a-entity>
+        <a-entity
+          position="1 0.2 1"
+          scale="0 0 0"
+          id="plant-model-6"
+          obj-model="obj: #small-tree-obj; mtl: #small-tree-mtl"
+        ></a-entity>
+        <a-entity
+          position="1 0.2 1"
+          scale="0 0 0"
+          id="plant-model-7"
+          obj-model="obj: #small-tree-obj; mtl: #small-tree-mtl"
+        ></a-entity>
+        <a-entity
+          position="1 0.2 1"
+          scale="0 0 0"
+          id="plant-model-8"
+          obj-model="obj: #small-tree-obj; mtl: #small-tree-mtl"
+        ></a-entity>
+        <a-entity
+          position="1 0.2 1"
+          scale="0 0 0"
+          id="plant-model-9"
+          obj-model="obj: #small-tree-obj; mtl: #small-tree-mtl"
+        ></a-entity>
+        <!-- the tile grid -->
+        <a-entity
+          id="tile-1"
+          position="-1 0 -1"
+          scale="0.09 0.09 0.09"
+          gltf-model="url(assets/rounded-corner-green.gltf)"
+        ></a-entity>
+        <a-entity
+          id="tile-2"
+          position="0 0 -1"
+          scale="0.09 0.09 0.09"
+          gltf-model="url(assets/rounded-corner-green.gltf)"
+        ></a-entity>
+        <a-entity
+          id="tile-3"
+          position="1 0 -1"
+          scale="0.09 0.09 0.09"
+          gltf-model="url(assets/rounded-corner-green.gltf)"
+        ></a-entity>
+        <a-entity
+          id="tile-4"
+          position="-1 0 0"
+          scale="0.09 0.09 0.09"
+          gltf-model="url(assets/rounded-corner-green.gltf)"
+        ></a-entity>
+        <a-entity
+          id="tile-5"
+          position="0 0 0"
+          scale="0.09 0.09 0.09"
+          gltf-model="url(assets/rounded-corner-green.gltf)"
+        ></a-entity>
+        <a-entity
+          id="tile-6"
+          position="1 0 0"
+          scale="0.09 0.09 0.09"
+          gltf-model="url(assets/rounded-corner-green.gltf)"
+        ></a-entity>
+        <a-entity
+          id="tile-7"
+          position="-1 0 1"
+          scale="0.09 0.09 0.09"
+          gltf-model="url(assets/rounded-corner-green.gltf)"
+        ></a-entity>
+        <a-entity
+          id="tile-8"
+          position="0 0 1"
+          scale="0.09 0.09 0.09"
+          gltf-model="url(assets/rounded-corner-green.gltf)"
+        ></a-entity>
+        <a-entity
+          id="tile-9"
+          position="1 0 1"
+          scale="0.09 0.09 0.09"
+          gltf-model="url(assets/rounded-corner-green.gltf)"
+        ></a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+    <script src="index.js"></script>
+  </body>
+</html>

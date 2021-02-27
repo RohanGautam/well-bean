@@ -10,20 +10,24 @@
 }
 
 .tab {
-    font-weight: 200;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  font-weight: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .active-tab {
-    color:#00993b;
+  color: #00993b;
 }
 
 .body {
-    background-color: whitesmoke;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
+  background-color: whitesmoke;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.kommunicate-custom-iframe {
+  margin-bottom: 5em;
 }

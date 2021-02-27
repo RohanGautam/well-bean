@@ -1,6 +1,6 @@
 # Blender v2.81 (sub 16) OBJ File: 'medium tree.blend'
 # www.blender.org
-mtllib medium tree.mtl
+mtllib medium-tree-light.mtl
 o LowPoly_Tree_03_lowpoly_tree_01_Plane.013
 v -0.562197 2.181051 -1.173359
 v -0.581863 2.236501 -1.098662

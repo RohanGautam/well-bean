@@ -1,6 +1,6 @@
 # Blender v2.81 (sub 16) OBJ File: 'big-tree.blend'
 # www.blender.org
-mtllib big-tree.mtl
+mtllib big-tree-light.mtl
 o LowPoly_Tree_07_lowpoly_tree_04_Plane.012
 v 0.962712 2.031091 -0.112072
 v 0.944789 2.002413 0.050782

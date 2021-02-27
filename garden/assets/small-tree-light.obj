@@ -1,6 +1,6 @@
 # Blender v2.81 (sub 16) OBJ File: 'free_lowpoly_trees_pack.blend'
 # www.blender.org
-mtllib small-tree.mtl
+mtllib small-light.mtl
 o LowPoly_Tree_01_Plane_Plane.000
 v 0.233095 0.950031 -0.502258
 v 0.285581 0.867054 -0.230652

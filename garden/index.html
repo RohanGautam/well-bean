@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
     <title>Arjs-test</title>
 
     <!-- Ar-js and A-frame dependencies -->
@@ -11,6 +14,39 @@
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   </head>
   <body id="body" style="margin: 0px; overflow: hidden">
+    <div
+      style="
+        background-color: white;
+        border: 5px solid green;
+        position: absolute;
+        z-index: 1;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        margin: 8px;
+        padding: 1px 10px 1px 10px;
+        border-radius: 8px;
+      "
+    >
+      <div>
+        <p style="font-size: x-large; font-family: Arial">
+          <span> Hey John! Time to admire the work you've done! </span>
+        </p>
+        <img
+          src="assets/plant.png"
+          alt="plant image"
+          style="height: 38px; position: absolute; top: 2px; right: 2px"
+        />
+        <p>
+          <span id="quote" style="color: gray; font-family: Arial"></span>
+          <span
+            id="author"
+            style="color: gray; font-family: Arial; font-style: italic"
+          ></span>
+        </p>
+      </div>
+    </div>
+
     <a-scene embedded arjs>
       <a-assets>
         <a-asset-item

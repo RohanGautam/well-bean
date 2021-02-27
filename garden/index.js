@@ -39,7 +39,8 @@ const scaleMap = {
 };
 
 let tile_nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-let growth_nums = tile_nums.map((_) => Math.floor(Math.random() * 3) + 1);
+// let growth_nums = tile_nums.map((_) => Math.floor(Math.random() * 3) + 1);
+let growth_nums = [3, 1, 1, 1, 1, 1, 1, 1, 1];
 
 const zip = (a, b) => a.map((k, i) => [k, b[i]]);
 
@@ -50,4 +51,16 @@ zip(tile_nums, growth_nums).map((ele) => {
   tree.setAttribute("scale", scaleMap[growth_num]);
   tree.setAttribute("position", treePositionMap[tile_num]);
   tree.setAttribute("obj-model", growthMap[growth_num]);
+});
+
+// fetch an inspiring quote
+fetch("https://quotes.rest/qod?category=inspire&language=en").then((result) => {
+  result.json().then((response) => {
+    console.log("response is", response);
+    let quote = response["contents"]["quotes"][0]["quote"];
+    let author = response["contents"]["quotes"][0]["author"];
+    document.getElementById("quote").innerText = quote;
+    document.getElementById("author").innerText = `- ${author}`;
+    console.log(quote, author);
+  });
 });

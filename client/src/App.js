@@ -12,7 +12,7 @@ import './App.css';
 
 class App extends Component {
   render() {
-    return (
+    return (      
       <Router>
         <div>
           <Switch>
@@ -25,6 +25,7 @@ class App extends Component {
           </Switch>
         </div>
       </Router>
+      
     );
   }
 }

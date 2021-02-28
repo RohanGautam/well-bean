@@ -20,11 +20,25 @@ class History extends Component {
             .then(res => {
                 if (res.data) {
                     const videos = res.data.map(checkin => {
+                        var mood = "Neutral";
+                        if (checkin.happy > checkin.sad) {
+                            if (checkin.happy > checkin.neutral) {
+                                mood = "Happy"
+                            } else {
+                                mood = "Neutral"
+                            }
+                        } else {
+                            if (checkin.sad > checkin.neutral) {
+                                mood = "Sad"
+                            } else {
+                                mood = "Neutral"
+                            }
+                        }
+
                         return {
                             "date": new Date(checkin.date),
                             "path": checkin.video_path,
-                            "mood": checkin.happy > checkin.sad ?
-                                checkin.happy > checkin.neutral ? "Happy" : "Neutral" : "Sad"
+                            "mood": mood
                         }
                     })
                     this.setState({ videos })

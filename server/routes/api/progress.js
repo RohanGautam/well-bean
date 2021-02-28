@@ -25,6 +25,13 @@ router.get("/", (req, res) => {
     .then((progress) => res.json(progress));
 });
 
+// @route GET api/progress/count
+// @desc Get all items sorted by date
+router.get("/count", (req, res) => {
+  Progress.count()
+    .then((count) => res.json(count))
+});
+
 // @route GET api/progress/graph
 // @desc Get past 20 items sorted by date
 router.get("/graph", (req, res) => {

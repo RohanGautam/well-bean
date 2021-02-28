@@ -31,7 +31,6 @@ class Stats extends Component {
         const results = []
         for (var i = 0; i < res.data.length; i++) {
           results.push(res.data[i]["happy"])
-          console.log(res.data[i]["happy"])
         }
         this.setState({
           data: results

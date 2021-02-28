@@ -155,7 +155,7 @@ function scaleModelBackUp(tile_num, new_g, fallTime) {
 
 //random growth
 let randint = (start, end) => Math.floor(Math.random() * end) + start;
-fetch("http://localhost:5000/api/progress").then((res) => {
+fetch("https://91ef69baed54.ngrok.io/api/progress").then((res) => {
   res.json().then((result) => {
     console.log(result);
     // clearLocalStorage();

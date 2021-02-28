@@ -22,7 +22,9 @@ class History extends Component {
                     const videos = res.data.map(checkin => {
                         return {
                             "date": new Date(checkin.date),
-                            "path": checkin.video_path
+                            "path": checkin.video_path,
+                            "mood": checkin.happy > checkin.sad ?
+                                checkin.happy > checkin.neutral ? "Happy" : "Neutral" : "Sad"
                         }
                     })
                     this.setState({ videos })
@@ -32,6 +34,11 @@ class History extends Component {
 
     render() {
         const { videos, open, activeVideo } = this.state;
+        const moodMap = {
+            "Happy": "success",
+            "Neutral": "secondary",
+            "Sad": "primary"
+        }
         return (
             <div className="gallery">
                 {videos.map(video => {
@@ -48,7 +55,7 @@ class History extends Component {
                         {this.dateToYMD(video.date)}
 
                         <h4>
-                            <Badge variant="success">Happy</Badge>
+                            <Badge variant={moodMap[video.mood]}>{video.mood}</Badge>
                         </h4>
                     </div>
                 })}

@@ -18,11 +18,7 @@ class Login extends Component {
                     />
                     <h1 className="login-header">
                         <span className="green-text">Grow </span>
-                        with us,
-                    </h1>
-                    <h1 className="login-header">
-                        Or
-                        <span className="green-text"> else...</span>
+                        with us
                     </h1>
                     <Form className="login-card-form">
                         <Form.Group>

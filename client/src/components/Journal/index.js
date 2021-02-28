@@ -49,7 +49,7 @@ class Journal extends Component {
         return (
             <div className="journal">
                 <div className="journal-reminder">
-                    <h5><span>{time} hours</span> since your last check-in</h5>
+                    <h5><span>{time} hour{time === 1 ? "" : "s"}</span> since your last check-in</h5>
                     <p>Remember to check-in often to <br /> track your progress!</p>
                     <img
                         src={image}

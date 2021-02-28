@@ -99,7 +99,7 @@ class Journal extends Component {
                                 ...transitionStyles[state]
                             }}>
                             <Alert variant="success">
-                                Great work!
+                                Great work! You gained 10 beans!
                         </Alert>
                         </div>
                     )}
@@ -113,11 +113,13 @@ class Journal extends Component {
     submitVideo = () => {
         const { video } = this.state;
 
+        this.setState({ success: true })
+
         const fd = new FormData();
         fd.append("video", video, "video.webm");
         axios.post("/api/progress", fd)
             .then(res => {
-                this.setState({ success: true })
+                console.log(res)
             })
     }
 }

@@ -27,3 +27,20 @@ a, a:visited, a:hover {
     width: 80%;
     font-size: 2.2em;
 }
+
+.garden-pts {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.garden-pts > h1 {
+    font-size: 2em;
+    font-weight: 200;
+}
+
+.garden-green-text {
+    color:#00d150;
+    font-style: italic;
+    font-weight: 300;
+}

@@ -2,10 +2,6 @@
 
 We care about everyone's well-bean
 
-## Our pitch video
-
-[![Pitch](https://img.youtube.com/vi/Pvnv2umzIcg/0.jpg)](https://www.youtube.com/watch?v=Pvnv2umzIcg)
-
 ## Screenshots
 
 <table>
@@ -18,6 +14,10 @@ We care about everyone's well-bean
     <td><img src="readme-imgs/garden2.png" alt="2"width="300px" ></td>
   </tr>
 </table>
+
+## Our pitch video
+
+[![Pitch](https://img.youtube.com/vi/Pvnv2umzIcg/0.jpg)](https://www.youtube.com/watch?v=Pvnv2umzIcg)
 
 ## Web
 

@@ -1,6 +1,6 @@
 # Well bean
 
-We care about everyone's well-bean
+We care about everyone's well-bean. Check out our [Devpost!](https://devpost.com/software/well-bean)
 
 ## Screenshots
 

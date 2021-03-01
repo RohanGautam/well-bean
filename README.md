@@ -10,14 +10,15 @@ We care about everyone's well-bean
 
 <table>
   <tr>
-    <td> <img src="readme-imgs/chatbot.png"  alt="1"  ></td>
-    <td><img src="readme-imgs/check in.png" alt="2"></td>
+    <td> <img src="readme-imgs/chatbot.png"  alt="1" width="300px"  ></td>
+    <td><img src="readme-imgs/check in.png" alt="2"width="300px"></td>
    </tr> 
    <tr>
-    <td> <img src="readme-imgs/stats.png"  alt="1"  ></td>
-    <td><img src="readme-imgs/garden2.png" alt="2" ></td>
+    <td> <img src="readme-imgs/stats.png"  alt="1" width="300px" ></td>
+    <td><img src="readme-imgs/garden2.png" alt="2"width="300px" ></td>
   </tr>
 </table>
+
 ## Web
 
 Running the client:
